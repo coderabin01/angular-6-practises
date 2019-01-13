@@ -1,0 +1,71 @@
+{
+    "status": 200,
+    "message": "Success",
+    "body": {
+        "vendorServiceTypeId": 1,
+        "vendorServiceTypeName": "Towing ",
+        "maintenances": [
+            {
+                "vendorMaintenanceTypeId": 1,
+                "maintenanceTypeName": "Emergency Services ",
+                "rates": [
+                    {
+                        "vendorServiceRatesId": 2,
+                        "vendorSubServiceTypeId": 2,
+                        "vendorSubServiceTypeName": "Medium Duty",
+                        "hourly": true,
+                        "flatRate": true,
+                        "hookupNadMileage": true,
+                        "freeMileage": false,
+                        "lowRate": "0-5",
+                        "mediumRate": "5-10",
+                        "highRate": "10-15"
+                    },
+                    {
+                        "vendorServiceRatesId": 1,
+                        "vendorSubServiceTypeId": 1,
+                        "vendorSubServiceTypeName": "Light Duty",
+                        "hourly": true,
+                        "flatRate": true,
+                        "hookupNadMileage": true,
+                        "freeMileage": false,
+                        "lowRate": "0-5",
+                        "mediumRate": "5-10",
+                        "highRate": "10-15"
+                    }
+                ]
+            },
+            {
+                "vendorMaintenanceTypeId": 2,
+                "maintenanceTypeName": "Scheduled Services ",
+                "rates": [
+                    {
+                        "vendorServiceRatesId": 15,
+                        "vendorSubServiceTypeId": 1,
+                        "vendorSubServiceTypeName": "Light Duty",
+                        "hourly": true,
+                        "flatRate": true,
+                        "hookupNadMileage": true,
+                        "freeMileage": false,
+                        "lowRate": "0-5",
+                        "mediumRate": "5-10",
+                        "highRate": "10-15"
+                    },
+                    {
+                        "vendorServiceRatesId": 16,
+                        "vendorSubServiceTypeId": 2,
+                        "vendorSubServiceTypeName": "Medium Duty",
+                        "hourly": true,
+                        "flatRate": true,
+                        "hookupNadMileage": true,
+                        "freeMileage": false,
+                        "lowRate": "0-5",
+                        "mediumRate": "5-10",
+                        "highRate": "10-15"
+                    }
+                ]
+            }
+        ]
+    },
+    "error": null
+}

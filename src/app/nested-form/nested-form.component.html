@@ -1,0 +1,22 @@
+<div [formGroup]="pricingForm">
+  {{pricing.vendorServiceTypeName}}<br>
+  <input formControlName="vendorDispatchLocationId">
+<div formArrayName="mainatenances">
+  <div *ngFor="let mainatenance of mainatenances; let i = index">
+    <div [formGroupName]="i">
+        {{mainatenance.maintenanceTypeName}}<br>
+        <input type="text" formControlName="vendorMaintenanceTypeId" />
+        <div formArrayName="rates">
+          <div *ngFor="let rate of rates; let j = index">
+            <div [formGroupName]="j">
+                {{rate.vendorSubServiceTypeName}}<br>
+                <input type="text" formControlName="vendorServiceRatesId" />
+                <input type="text" formControlName="vendorSubServiceTypeId" />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+<button (click)="save()">Save</button>

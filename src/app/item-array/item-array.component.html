@@ -1,0 +1,34 @@
+<form [formGroup]="userForm" (ngSubmit)="submit(userForm.value)">
+    <div>
+        <label for="name">Name</label>
+        <input type = "text" id="name" formControlName="name">
+        <div *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched">
+            <div *ngIf="userForm.controls.name.errors.required">
+                required
+            </div>
+        </div>       
+    </div>
+    <div formArrayName="address"
+    *ngFor="let item of userForm.get('address').controls; let i = index;">
+        <div [formGroupName]="i">
+            <div>
+                <label for="name">Temp Address</label>
+                <input formControlName="tempAddress">
+                <div *ngIf="userForm.controls.address.invalid">
+                    <!-- <div *ngIf="userForm.controls.address.controls.tempAddress.required">
+                        required
+                    </div> -->
+                    invalid
+                </div>
+            </div>
+            <div>
+                <label for="name">Permanent Address</label>
+                <input formControlName="permanentAddress">
+            </div>
+        </div>
+    </div>
+    <input type="submit">
+</form>
+
+
+{{userForm.value | json}}

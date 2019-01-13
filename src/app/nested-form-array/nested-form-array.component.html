@@ -1,0 +1,47 @@
+<div [formGroup]="pricingForm">
+  {{pricing.vendorServiceTypeName}}<br>
+  <input formControlName="vendorDispatchLocationId">
+<div formArrayName="maintenances">
+  <!-- **-----{{getMaintenances() | json}}------** -->
+  <div *ngFor="let mainatenance of maintenances; let i = index">
+    <div [formGroupName]="i">
+        {{mainatenance.maintenanceTypeName}}<br>
+        vendorMaintenanceTypeId: <input type="text" formControlName="vendorMaintenanceTypeId" [ngClass]="{'is-invalid': true}" />        
+        <!-- <div *ngIf="pricingForm.controls.maintenances.invalid">          
+          <div *ngIf="pricingForm.controls.maintenances.controls[i].controls.vendorMaintenanceTypeId.errors.required">
+            Required
+          </div>
+          <div *ngIf="pricingForm.controls.maintenances.controls[i].controls.vendorMaintenanceTypeId.errors.pattern">
+              Should be number
+            </div>
+        </div>  -->
+        {{pricingForm.controls.maintenances.controls[i].controls.vendorMaintenanceTypeId.value}} 
+     &&&{{pricingForm.controls.maintenances.controls[i].controls.vendorMaintenanceTypeId.value}}
+          <!-- {{pricingForm.controls.maintenances.invalid}}  ----- {{}} -->
+          <div formArrayName="rates">
+          <div *ngFor="let rate of rates; let j = index">
+            <div [formGroupName]="j">
+              <!-- {{getRates()}} -->
+                {{rate.vendorSubServiceTypeName}}<br>
+                <input type="text" formControlName="vendorServiceRatesId" />
+                vendorSubServiceTypeId: <input type="text" formControlName="vendorSubServiceTypeId" />
+                <div *ngIf="getMaintenanceControls().controls[i].controls.rates.invalid">
+                  <div *ngIf="getMaintenanceControls().controls[i].controls.rates.controls[j].controls.vendorSubServiceTypeId.errors?.required">
+                    <span class="help-block">Required</span>
+                  </div>
+                  <div *ngIf="getMaintenanceControls().controls[i].controls.rates.controls[j].controls.vendorSubServiceTypeId.errors?.pattern">
+                    <span class="help-block">Pattern</span>
+                  </div>
+                </div>
+                <br>
+                {{getMaintenanceControls().controls[i].controls.rates.invalid}}
+                <!-- ++++{{pricingForm.controls.maintenances.controls[i].controls.rates.controls[j].controls.vendorServiceRatesId.value}} -->
+                <!-- ++++{{getMaintenances().controls[i].controls.rates.controls[j].controls.vendorServiceRatesId.value}} -->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+<button (click)="save()">Save</button>

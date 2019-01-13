@@ -1,0 +1,20 @@
+<p>
+  form-array works!
+</p>
+
+<form [formGroup]="userForm" (ngSubmit)="submit(userForm.value)">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div formArrayName="aliases" *ngFor="let item of userForm.get('aliases').controls; let i = index;">
+    <div [formControlName]="i">
+      <input type="text" formControlName="tempAddress">
+      <input type="text" formControlName="permanentAddress">      
+    </div>
+  </div>
+
+  <input type="submit">
+  <!-- {{userForm.status}} -->
+</form>
+<!-- ----{{userForm.value | json}}----- -->
